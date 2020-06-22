@@ -18,9 +18,9 @@ class CreateCustomerService {
   ) {}
 
   public async execute({ name, email }: IRequest): Promise<Customer> {
-    const userExist = await this.customersRepository.findByEmail(email);
+    const customerExist = await this.customersRepository.findByEmail(email);
 
-    if (userExist) {
+    if (customerExist) {
       throw new AppError('Email ja cadastrado no sistema');
     }
 
